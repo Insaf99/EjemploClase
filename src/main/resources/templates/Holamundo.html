@@ -6,8 +6,20 @@
 </head>
 <body>
     <h1>Hola mundo</h1>
-    <span th:text="${persona.name}">sadas</span>
-    <span th:text="${persona.lastname}">sadas</span>
-    <span th:text="${persona.tel}">sadas</span>
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>tel</th>
+        </thead>
+        <tbody>
+            <tr th:each="persona , x : ${personas}">
+                <td th:text="${persona.name}"> </td>
+                <td th:text="${persona.lastname}"> </td>
+                <td th:text="${persona.tel}"> </td>
+            </tr>
+        </tbody>
+    </table>
+
 </body>
 </html>
