@@ -1,7 +1,7 @@
 package com.example.ClaseSpring.EjemploClase.Controlador;
 
 import com.example.ClaseSpring.EjemploClase.Dominio.Persona;
-import com.example.ClaseSpring.EjemploClase.Service.PersonaService;
+import com.example.ClaseSpring.EjemploClase.Service.PersonaServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Controlador {
 
     @Autowired
-    private PersonaService personaService;
+    private PersonaServiceImpl personaService;
 
     @GetMapping("/")
     public String holamundo(Model model){

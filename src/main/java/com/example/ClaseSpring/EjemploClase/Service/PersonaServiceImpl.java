@@ -3,10 +3,12 @@ package com.example.ClaseSpring.EjemploClase.Service;
 import com.example.ClaseSpring.EjemploClase.Dao.PersonaDao;
 import com.example.ClaseSpring.EjemploClase.Dominio.Persona;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class PersonaServiceImpl implements PersonaService{
 
     @Autowired

@@ -1,11 +1,9 @@
 package com.example.ClaseSpring.EjemploClase.Dominio;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
+@Entity
 @Table(name="persona")
 public class Persona implements Serializable {
 
@@ -15,8 +13,11 @@ public class Persona implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idpersona;
 
+    @Column
     private String name;
+    @Column
     private String lastname;
+    @Column
     private String tel;
 
     public Persona() {
