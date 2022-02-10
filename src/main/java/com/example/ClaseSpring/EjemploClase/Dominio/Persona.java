@@ -1,6 +1,8 @@
 package com.example.ClaseSpring.EjemploClase.Dominio;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import java.io.Serializable;
 
 @Entity
@@ -14,8 +16,10 @@ public class Persona implements Serializable {
     private Long idpersona;
 
     @Column
+    @NotEmpty
     private String name;
     @Column
+    @NotEmpty
     private String lastname;
     @Column
     private String tel;

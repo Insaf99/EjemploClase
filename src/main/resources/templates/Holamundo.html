@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="http://www.thymelaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -22,12 +23,18 @@
                 <td th:text="${persona.name}"> </td>
                 <td th:text="${persona.lastname}"> </td>
                 <td th:text="${persona.tel}"> </td>
-                <td><a th:href="@{/editar/} + ${persona.idpersona}" th:text="editar"></a></td>
-                <td><a th:href="@{/eliminar(idpersona=${persona.idpersona})}" th:text="eliminar"></a></td>
+                <td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/editar/} + ${persona.idpersona}" th:text="editar"></a></td>
+                <td><a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/eliminar(idpersona=${persona.idpersona})}" th:text="eliminar"></a></td>
             </tr>
             </tbody>
+
         </table>
     </div>
+    <form method="post" th:action="@{/logout}">
+        <b>Username: </b><span sec:authentication="name"> Usuario que login</span>
+        <b>Rol: </b><span sec:authentication="principal.authorities"> Roles</span>
+        <a href="#" onclick="this.parentNode.submit();">Logout</a>
+    </form>
 
 
 </body>

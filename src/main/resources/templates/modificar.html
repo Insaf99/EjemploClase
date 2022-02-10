@@ -12,9 +12,11 @@
         <input type="hidden" name="idpersona" th:field="*{idpersona}"/>
       <label for="name">Nombre:</label>
       <input type="text" name="name" th:field="*{name}"/>
+        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" >Error nombre</span>
       <br/>
       <label for="lastname">Apellido:</label>
       <input type="text" name="lastname" th:field="*{lastname}"/>
+        <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}" >Error Apellido</span>
       <br/>
       <label for="tel">Telefono:</label>
       <input type="text" name="tel" th:field="*{tel}"/>
