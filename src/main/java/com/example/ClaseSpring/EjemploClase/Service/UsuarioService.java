@@ -21,10 +21,15 @@ public class UsuarioService implements UserDetailsService {
     @Autowired
     private UsuarioDao usuarioDao;
 
+    //para jwt
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Usuario usuario = usuarioDao.findByUsername(username);
+        return new User("franco","{noop}1234",new ArrayList<>());
+
+    }
+    //sin jwt
+       /* Usuario usuario = usuarioDao.findByUsername(username);
 
         if (usuario == null){
             throw new UsernameNotFoundException(username);
@@ -36,5 +41,5 @@ public class UsuarioService implements UserDetailsService {
         }
 
         return new User(usuario.getUsername(),usuario.getPassword(),roles);
-    }
+    }*/
 }
