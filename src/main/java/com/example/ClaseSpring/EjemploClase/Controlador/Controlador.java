@@ -12,18 +12,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.List;
 
-@Controller
+@RestController
 public class Controlador {
 
     @Autowired
     private PersonaServiceImpl personaService;
 
     @GetMapping("/")
-    public String holamundo(Model model){
+    public List<Persona> holamundo(Model model){
         ArrayList<Persona> personas = (ArrayList<Persona>) personaService.listarPersonas();
         model.addAttribute("personas",personas);
-        return "Holamundo";
+        return personas;
     }
 
     @GetMapping("/agregar")
